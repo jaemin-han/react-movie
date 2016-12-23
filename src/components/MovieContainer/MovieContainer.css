@@ -1,0 +1,8 @@
+#movie-list-container {
+  width: 100%;
+  height: 81vh;
+  align-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

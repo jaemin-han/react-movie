@@ -1,4 +1,4 @@
-// import the libs we need
+// Import files
 import React, { Component } from 'react';
 import './normalize.css';
 import style from './App.css';
@@ -6,7 +6,7 @@ import MovieContainer from './MovieContainer/MovieContainer.jsx';
 import SearchForm from './SearchForm/SearchForm.jsx';
 import SearchContainer from './SearchContainer/SearchContainer.jsx';
 
-// create a React Component called _App_
+// Create a React Component called _App_
 class App extends Component {
   constructor() {
     super();
@@ -20,7 +20,9 @@ class App extends Component {
     };
   }
 
-  // get all movies that's stored in the database and set returned array to state
+  // Get all movies
+  // Stores in the database
+  // Sets returned array to state
   getAllMovies() {
     fetch('/api/movies')
     .then(r => r.json())
@@ -28,13 +30,13 @@ class App extends Component {
       this.setState({
         allMovies : results,
       });
-      console.log('allMovies', this.state.allMovies)
+      console.log('allMovies', this.state.allMovies);
     })
     .catch(err => console.log('getAllMovies frontend', err))
   }
 
-  // calls external api => omdbapi.com
-  // search using titleInput and save title and poster information to state
+  // Calls external api => omdbapi.com
+  // Search using titleInput and save title and poster information to state
   searchOmdb() {
     this.setState({
       searched : true,
@@ -54,8 +56,7 @@ class App extends Component {
     // console.log('in searchOmdb', this.state)
   }
 
-
-  // update input
+  // Update input
   handleInput(e) {
     // console.log('handleInput', e.target.value);
     this.setState({
@@ -63,7 +64,7 @@ class App extends Component {
     });
   }
 
-  // save to db using omdbTitle and omdbPoster
+  // Save to db using omdbTitle and omdbPoster
   saveToDB() {
     if (this.state.searched) {
       const payload = {
