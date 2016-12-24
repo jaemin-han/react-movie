@@ -8,7 +8,7 @@ const logger = require('morgan');
 // Gets the public folder (CSS/HTML)
 const path = require('path');
 const bodyParser = require('body-parser');
-// const movieRouter = require('./routes/movies');
+const movieRouter = require('./routes/movies');
 
 // Invoking the express library
 const app = express();
@@ -23,6 +23,6 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // app.use('/api', require ('./routes/movies'));
-// app.use('/api', movieRouter);
+app.use('/api', movieRouter);
 
 app.listen(PORT, () => console.log('Yup, server is listening', PORT));
